@@ -66,6 +66,7 @@ router.post('/create', async (req, res, next) => {
       const title = $('.prod-title')['0'].children[0].data;
       const subtitle = $('.prod-subtitle')['0'].children[0].data;
       const packing = $('.prod-flavour')['0'].children[0].data;
+      const cn = $('.prod-cn')['0'].children[0].data;
       const description = $('.about-the-prod div p')['0'].children[0].data;
       const image = $('.prod-img')['0'].attribs.src;
       // features
@@ -88,7 +89,7 @@ router.post('/create', async (req, res, next) => {
       const type = $('.entry-header')['0'].attribs['data-test'];
       const lang = urls[n][1];
       try {
-        await Product.create({ title, subtitle, packing, description, image, features, format, use, warning, formula, info, type, lang })
+        await Product.create({ title, subtitle, packing, cn, description, image, features, format, use, warning, formula, info, type, lang })
         res.status(200).json({ message: 'DB created' });
       } catch (error) {
         console.log(error);
