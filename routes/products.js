@@ -86,10 +86,10 @@ router.post('/create', async (req, res, next) => {
       const warning = (warningData != undefined) ? warningData.data : $.html('.collapsable-3 div div ul');
       const formula = $.html('.collapsable-0 div div');
       const info = $.html('.collapsable-4 div div');
-      const type = $('.entry-header')['0'].attribs['data-test'];
+      const family = $('.entry-header')['0'].attribs['data-test'];
       const lang = urls[n][1];
       try {
-        await Product.create({ title, subtitle, packing, cn, description, image, features, format, use, warning, formula, info, type, lang })
+        await Product.create({ title, subtitle, packing, cn, description, image, features, format, use, warning, formula, info, family, lang })
         res.status(200).json({ message: 'DB created' });
       } catch (error) {
         console.log(error);
